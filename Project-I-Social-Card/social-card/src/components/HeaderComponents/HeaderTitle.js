@@ -1,8 +1,14 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 
 const HeaderTitle = () => {
-  return <h1>HeaderTitle</h1>;
+  return (
+    <div className='header-title'>
+      <h1>Lambda School</h1>
+      <p class='lead'>@LambdaSchool</p>
+      <p class='lead'>27 may</p>
+    </div>
+  );
 };
 
 export default HeaderTitle;
