@@ -8,23 +8,37 @@ import NumberButton from './components/ButtonComponents/NumberButton';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      total: 0
+    };
+    console.log(this.state.total);
   }
+
+  updateNumberHandler = event => {
+    console.log(event);
+    this.setState({ total: event.target.value });
+  };
+
+  singleClickHandler = () => alert('Single Click!');
 
   render() {
     return (
       <div className='App'>
         <div className='wrap'>
           <div className='firstRow'>
-            <CalculatorDisplay displayStyle='display' text='0' />
+            <CalculatorDisplay displayStyle='display' text={this.state.total} />
           </div>
-          <div class='main'>
+          <div className='main'>
             <div className='leftSide'>
               <div className='clearButton'>
                 <ActionButton buttonStyle='clear' text='clear' />
               </div>
               <div className='sevenThroughNine'>
-                <NumberButton buttonStyle='number' text='7' />
+                <NumberButton
+                  buttonStyle='number'
+                  text='7'
+                  singleClickHandler={this.singleClickHandler}
+                />
                 <NumberButton buttonStyle='number' text='8' />
                 <NumberButton buttonStyle='number' text='9' />
               </div>
@@ -43,11 +57,11 @@ class App extends React.Component {
               </div>
             </div>
             <div className='rightSide'>
-              <NumberButton displayStyle='button' text='&divide;' />
-              <NumberButton displayStyle='button' text='&times;' />
-              <NumberButton displayStyle='button' text='-' />
-              <NumberButton displayStyle='button' text='+' />
-              <NumberButton displayStyle='button' text='=' />
+              <NumberButton buttonStyle='button' text='&divide;' />
+              <NumberButton buttonStyle='button' text='&times;' />
+              <NumberButton buttonStyle='button' text='-' />
+              <NumberButton buttonStyle='button' text='+' />
+              <NumberButton buttonStyle='button' text='=' />
             </div>
           </div>
         </div>
