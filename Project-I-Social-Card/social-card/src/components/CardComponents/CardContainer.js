@@ -5,10 +5,14 @@ import CardBanner from './CardBanner';
 
 const CardContainer = () => {
   return (
-    <div className='card-container'>
-      <CardBanner />
-      <CardContent />
-    </div>
+    <a href='http://reactjs.org' target='_blank' rel='noopener noreferrer'>
+      <div className='card-container'>
+        <div className='cards'>
+          <CardBanner />
+          <CardContent />
+        </div>
+      </div>
+    </a>
   );
 };
 
